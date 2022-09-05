@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="checkFunctions.js"></script>
+    <script type="module" src="main.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <form id="regForm" action="" method="GET">  
+        <table id ="firstTable">
+            <caption>Форма записи сотрудника</caption>
+            <tr>
+                <td>ФИО</td><td><input type="text" id="FIO" onkeydown="return checkFIO(event.key)" name="person" ></td>
+            </tr>
+            <tr>
+                <td>Дата рождения</td>
+                <td>
+                    <label>Показать календарь<input type="checkbox" id="cal1" value="show"></label><br>
+                    <input type="text" onkeydown="return checkDate(event.key)" name="dataVer1"><br>
+                    <input type="date" name="dataVer2">
+                    <p class="msg" id="dataMessage"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>Номер телефона</td><td><input type="tel" onkeydown="return checkPhone(event.key)" name="phoneNumber" placeholder="8(900)-555-35-35"></td>
+            </tr>
+            <tr>
+                <td>ИНН</td><td><input type="number" name="INN"></td>
+            </tr>
+            <tr>
+                <td>Email</td><td><input type="email" name="email"></td>
+            </tr>
+            <tr>
+                <td>Место прохождения</td>
+                <td>
+                    <select name="select">
+                        <option value="MPEI">НИУ МЭИ</option>
+                        <option value="Other">Другое</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Дата и время записи</td>
+                <td>
+                    <label>Показать календарь<input type="checkbox" id="cal2" value="show"></label><br>
+                    <input type="text"  onkeydown="return checkDate(event.key)" name="dataVer3"><br>
+                    <input type="datetime-local"  name="dataVer4">
+
+
+                </td>
+            </tr>
+            <tfoot>
+                <td><button type="submit">Отправить форму</button></td>
+                <td><button type="reset">Очистить форму</button></td>
+            </tfoot>   
+        </table>  
+    </form>  
+    <br>
+        <form id="findForm" action="showAppointments.php" method="GET">      
+        <table id="secondTable">
+            <caption>Найти записи для сотрудника</caption>
+            <tr>
+                <td><input type="tel" onkeydown="return checkPhone(event.key)" name="phoneNumberFind" placeholder="8(900)-555-35-35"></td>
+                <tfoot>
+                    <td><button type="submit">Отправить форму</button></td>
+                </tfoot>
+            </tr>
+        </table>
+        </form>
+    </div>    
+</body>
+</html>
